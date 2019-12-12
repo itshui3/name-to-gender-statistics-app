@@ -6,8 +6,12 @@ function Result(props) {
   return (
     <div className="result__cont">
       {
-        props.genderInfo.name &&
+        props.genderInfo.name && !props.isHui &&
 <p>The name <span className="result__name">{props.genderInfo.name}</span> has a <span className="result__probability">{props.genderInfo.probability}%</span> chance of being a <span className="result__gender">{props.genderInfo.gender}</span> name.</p>
+      }
+      {
+        props.isHui &&
+          <h2 className="isHui">The name XuHui Zhu is a great name. 100%.</h2>
       }
     </div>
   )
@@ -15,7 +19,8 @@ function Result(props) {
 
 const mapStateToProps = state => {
   return {
-    genderInfo: state.genderInfo
+    genderInfo: state.genderInfo,
+    isHui: state.isHui
   }
 
 }

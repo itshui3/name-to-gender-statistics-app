@@ -1,4 +1,9 @@
-// import actions
+import {
+  IS_FETCHING,
+  SUCCESSFUL_FETCH,
+  FAILED_FETCH,
+  SET_IS_HUI
+} from '../actions'
 
 const initialState = {
   genderInfo: {
@@ -8,20 +13,21 @@ const initialState = {
     count: null
   },
   isFetching: false,
-  error: null
+  error: null,
+  isHui: false
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
 
   switch(type) {
 
-    case 'IS_FETCHING':
+    case IS_FETCHING:
       return {
         ...state,
         isFetching: true
       }
 
-    case 'SUCCESSFUL_FETCH':
+    case SUCCESSFUL_FETCH:
       return {
         ...state,
         genderInfo: {
@@ -34,12 +40,19 @@ export const reducer = (state = initialState, { type, payload }) => {
         error: ''
       }
     
-      case 'FAILED_FETCH':
+      case FAILED_FETCH:
         return {
           ...state,
           error: payload,
           isFetching: false
         }
+
+      case SET_IS_HUI:
+        return {
+          ...state,
+          isHui: payload
+        }
+
 
     default:
       return state

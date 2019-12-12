@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 // Redux
 import { useDispatch } from 'react-redux'
-import { attemptFetch } from '../redux/actions'
+import { attemptFetch, setIsHui } from '../redux/actions'
 // Styling
 import './Form.scss'
 
@@ -13,7 +13,15 @@ function Form(props) {
 
   const handleClick = ev => {
     ev.preventDefault()
-    dispatch(attemptFetch(name))
+    if (!name.toLowerCase().includes('xuhui zhu')){
+      dispatch(attemptFetch(name))
+      dispatch(setIsHui(false))
+    } else {
+      console.log('hui logged')
+      dispatch(setIsHui(true))
+
+    }
+    setName('')
   }
 
   const handleChange = ev => {
