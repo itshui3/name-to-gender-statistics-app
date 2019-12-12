@@ -1,0 +1,37 @@
+.circles__cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 350px;
+  margin-left: 3%;
+
+  .circles__circle {
+    height: 100px;
+    width: 100px;
+    outline: none;
+    border-radius: 100%;
+  }
+
+  .circles__fetched {
+    background: green;
+
+  }
+
+  .circles__fetching {
+    background: yellow;
+  }
+
+  .circles__error {
+    background: red;
+  }
+
+  .circles__circle__dark {
+    opacity: 1;
+  }
+
+  .circles__circle__light {
+    opacity: .3;
+
+  }
+}
